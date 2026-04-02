@@ -18,6 +18,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'NewPractice'
-    repository: 'PracticeDotNetSelf'
+    repository: 'ambarajv/PracticeDotNetSelf'
     command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+    Dockerfile: '$(Build.SourcesDirectory)/PracticeDotNetSelf/Dockerfile'
+    buildContext: '$(Build.SourcesDirectory)/PracticeDotNetSelf'
