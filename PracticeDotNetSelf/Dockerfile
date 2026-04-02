@@ -12,8 +12,8 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["PracticeDotNetSelf/PracticeDotNetSelf.csproj", "PracticeDotNetSelf/"]
-RUN dotnet restore "./PracticeDotNetSelf/PracticeDotNetSelf.csproj"
+COPY ["PracticeDotNetSelf.csproj", "./"]
+RUN dotnet restore "PracticeDotNetSelf.csproj"
 COPY . .
 WORKDIR "/src/PracticeDotNetSelf"
 RUN dotnet build "./PracticeDotNetSelf.csproj" -c $BUILD_CONFIGURATION -o /app/build
