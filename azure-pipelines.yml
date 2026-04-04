@@ -9,9 +9,6 @@ variables:
 
 steps:
 
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'Build'
-
 - task: AdvancedSecurity-Codeql-Init@1
   inputs:
     enableAutomaticCodeQLInstall: true
