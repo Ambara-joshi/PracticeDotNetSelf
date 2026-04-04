@@ -20,6 +20,11 @@ steps:
     echo "Listing files..."
     ls -R
   displayName: 'Show folder structure'
+
+- task: AdvancedSecurity-Codeql-Init@1
+  inputs:
+    languages: 'csharp'
+
 - task: Docker@2
   inputs:
     containerRegistry: 'NewPractice'
