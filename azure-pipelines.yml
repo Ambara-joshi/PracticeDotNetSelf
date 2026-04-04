@@ -8,24 +8,14 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: AdvancedSecurity-Codeql-Init@1
-  inputs:
-    languages: 'csharp'
-    buildtype: 'manual'
 
 - script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+  displayName: 'Build'
 
 - script: |
     echo "Listing files..."
     ls -R
   displayName: 'Show folder structure'
-
-- task: AdvancedSecurity-Codeql-Analyze@1
-  displayName: Perform CodeQL Analysis
-  inputs:
-    uploadResults: false
-    waitForProcessing: false
 
 - task: Docker@2
   inputs:
