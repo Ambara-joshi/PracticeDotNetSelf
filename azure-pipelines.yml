@@ -19,6 +19,9 @@ steps:
     querysuite: 'code-scanning'
     buildtype: 'manual'
 
+- script: dotnet restore
+  displayName: 'Restore'
+
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'Build Project'
 
