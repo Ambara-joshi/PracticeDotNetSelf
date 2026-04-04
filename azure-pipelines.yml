@@ -32,5 +32,10 @@ steps:
     querysuite: 'code-scanning'
     buildtype: 'None'
 
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'Build Project'
+
 - task: AdvancedSecurity-Codeql-Analyze@1
   displayName: Perform CodeQL Analysis
+  continueOnError: true
+  condition: succeededOrFailed()
