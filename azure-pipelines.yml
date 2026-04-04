@@ -17,6 +17,14 @@ steps:
     ls -R
   displayName: 'Show folder structure'
 
+- task: Docker@2
+  inputs:
+    containerRegistry: 'NewPractice'
+    repository: 'ambarajv/PracticeDotNetSelf'
+    command: 'buildAndPush'
+    Dockerfile: '$(Build.SourcesDirectory)/PracticeDotNetSelf/Dockerfile'
+    buildContext: '$(Build.SourcesDirectory)/PracticeDotNetSelf'
+
 - task: AdvancedSecurity-Codeql-Init@1
   inputs:
     enableAutomaticCodeQLInstall: true
@@ -26,11 +34,3 @@ steps:
 
 - task: AdvancedSecurity-Codeql-Analyze@1
   displayName: Perform CodeQL Analysis
-
-- task: Docker@2
-  inputs:
-    containerRegistry: 'NewPractice'
-    repository: 'ambarajv/PracticeDotNetSelf'
-    command: 'buildAndPush'
-    Dockerfile: '$(Build.SourcesDirectory)/PracticeDotNetSelf/Dockerfile'
-    buildContext: '$(Build.SourcesDirectory)/PracticeDotNetSelf'
