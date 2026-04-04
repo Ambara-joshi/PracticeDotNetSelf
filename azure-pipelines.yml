@@ -24,10 +24,12 @@ steps:
 - task: AdvancedSecurity-Codeql-Init@1
   inputs:
     languages: 'csharp'
-    buildtype: 'none'
+    buildtype: 'manual'
 
 - task: AdvancedSecurity-Codeql-Analyze@1
   displayName: Perform CodeQL Analysis
+  inputs:
+    uploadResults: false
 
 - task: Docker@2
   inputs:
