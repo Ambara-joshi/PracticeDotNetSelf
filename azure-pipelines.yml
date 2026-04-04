@@ -25,8 +25,7 @@ steps:
     buildtype: 'None'
 
 - task: AdvancedSecurity-Codeql-Analyze@1
-  inputs:
-    WaitForProcessing: true
+  displayName: Perform CodeQL Analysis
 
 - task: Docker@2
   inputs:
