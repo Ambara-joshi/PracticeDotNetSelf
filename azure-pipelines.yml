@@ -25,6 +25,7 @@ steps:
   displayName: Perform CodeQL Analysis
   inputs:
     uploadResults: false
+    waitForProcessing: false
 
 - task: Docker@2
   inputs:
