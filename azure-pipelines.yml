@@ -17,6 +17,13 @@ steps:
     ls -R
   displayName: 'Show folder structure'
 
+- task: AdvancedSecurity-Codeql-Init@1
+  inputs:
+    enableAutomaticCodeQLInstall: true
+    languages: 'csharp'
+    querysuite: 'code-scanning'
+    buildtype: 'None'
+
 - task: Docker@2
   inputs:
     containerRegistry: 'NewPractice'
