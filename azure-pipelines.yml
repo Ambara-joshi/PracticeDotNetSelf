@@ -25,6 +25,10 @@ steps:
   inputs:
     languages: 'csharp'
 
+- task: AdvancedSecurity-Codeql-Analyze@1
+  inputs:
+    WaitForProcessing: true
+
 - task: Docker@2
   inputs:
     containerRegistry: 'NewPractice'
